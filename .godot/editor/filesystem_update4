@@ -1,0 +1,12 @@
+res://objects/resources/other/shelf.tscn
+res://objects/resources/other/shelf1.gd
+res://levels/game_level.tscn
+res://characters/player.tscn
+res://objects/resources/dropping/plank_dropped.tscn
+res://objects/resources/machines/making_table.tscn
+res://objects/resources/other/shelf.gd
+res://objects/resources/other/shelf2.gd
+res://objects/resources/other/shelf3.gd
+res://objects/resources/dropping/ready_products/table_dropped.tscn
+res://objects/resources/dropping/ready_products/spoon_dropped.tscn
+res://objects/resources/dropping/big_component_dropped.tscn

@@ -1,0 +1,253 @@
+[gd_scene load_steps=13 format=3 uid="uid://b8cq55re7qw88"]
+
+[ext_resource type="Script" path="res://objects/canvas/making_table_ui.gd" id="1_dxsm5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qnexd"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_gmtxq"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_ded17"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_jtdsq"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_42sau"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5k7q"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbgp1"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_w255m"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_v57vu"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_kraq8"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_f8puk"]
+font_size = 9
+
+[node name="making_table_ui" type="CanvasLayer"]
+script = ExtResource("1_dxsm5")
+
+[node name="crafting_time" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 48.0
+offset_top = 32.0
+offset_right = 240.0
+offset_bottom = 136.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Name" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 144.0
+offset_bottom = 57.0
+text = "name"
+label_settings = SubResource("LabelSettings_qnexd")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="image" type="Sprite2D" parent="Control"]
+position = Vector2(112, 80)
+scale = Vector2(0.0645058, 0.0640011)
+
+[node name="des" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 96.0
+offset_right = 152.0
+offset_bottom = 112.0
+text = "desc"
+label_settings = SubResource("LabelSettings_gmtxq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Next" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 64.0
+offset_right = 154.0
+offset_bottom = 95.0
+text = ">"
+
+[node name="Pre" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 64.0
+offset_right = 90.0
+offset_bottom = 95.0
+text = "<"
+
+[node name="make" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 112.0
+offset_right = 128.0
+offset_bottom = 128.0
+
+[node name="Label" type="Label" parent="Control/make"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 16.0
+text = "make"
+label_settings = SubResource("LabelSettings_ded17")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="req" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 40.0
+offset_right = 240.0
+offset_bottom = 67.0
+text = "requirements"
+label_settings = SubResource("LabelSettings_jtdsq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="big" type="Label" parent="Control/req"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 80.0
+offset_bottom = 48.0
+text = "big"
+label_settings = SubResource("LabelSettings_42sau")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="n_req" type="Label" parent="Control/req/big"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.4
+anchor_top = 0.5
+anchor_right = -0.4
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_right = 24.0
+offset_bottom = 8.0
+text = "/0"
+label_settings = SubResource("LabelSettings_i5k7q")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="n_in" type="Label" parent="Control/req/big"]
+layout_mode = 0
+offset_left = -24.0
+offset_bottom = 16.0
+text = "0"
+label_settings = SubResource("LabelSettings_pbgp1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="medium" type="Label" parent="Control/req"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 48.0
+offset_right = 83.0
+offset_bottom = 64.0
+text = "  medium"
+label_settings = SubResource("LabelSettings_w255m")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="n_req" type="Label" parent="Control/req/medium"]
+layout_mode = 0
+offset_left = -16.0
+offset_right = 8.0
+offset_bottom = 16.0
+text = "/0"
+label_settings = SubResource("LabelSettings_v57vu")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="n_in" type="Label" parent="Control/req/medium"]
+layout_mode = 0
+offset_left = -24.0
+offset_bottom = 16.0
+text = "0"
+label_settings = SubResource("LabelSettings_pbgp1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="small" type="Label" parent="Control/req"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 64.0
+offset_right = 80.0
+offset_bottom = 80.0
+text = "small"
+label_settings = SubResource("LabelSettings_kraq8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="n_req" type="Label" parent="Control/req/small"]
+layout_mode = 0
+offset_left = -16.0
+offset_right = 8.0
+offset_bottom = 16.0
+text = "/0"
+label_settings = SubResource("LabelSettings_f8puk")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="n_in" type="Label" parent="Control/req/small"]
+layout_mode = 0
+offset_left = -24.0
+offset_bottom = 16.0
+text = "0"
+label_settings = SubResource("LabelSettings_pbgp1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="exit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 33.0
+offset_right = 238.0
+offset_bottom = 49.0
+
+[node name="Label" type="Label" parent="Control/exit"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -5.0
+offset_right = 18.0
+offset_bottom = 18.0
+text = "x"
+
+[connection signal="timeout" from="crafting_time" to="." method="_on_crafting_timer_timeout"]
+[connection signal="pressed" from="Control/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Control/Pre" to="." method="_on_pre_pressed"]
+[connection signal="pressed" from="Control/make" to="." method="_on_make_pressed"]
+[connection signal="pressed" from="Control/exit" to="." method="_on_exit_pressed"]

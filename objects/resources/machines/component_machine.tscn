@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://dgnfw0di074cy"]
+
+[ext_resource type="Texture2D" uid="uid://dn50irgdcdhei" path="res://Art/Assets/indoor/maszyna.png" id="1_n7175"]
+[ext_resource type="Script" path="res://objects/resources/machines/component_machine_interaction_area.gd" id="2_0txo4"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="3_t0cak"]
+[ext_resource type="Texture2D" uid="uid://cf1or2ppk32w2" path="res://Art/Assets/hints/plank-Bcomponent.png" id="4_lc8fp"]
+[ext_resource type="Script" path="res://objects/resources/machines/hint.gd" id="5_cij3q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw1ou"]
+size = Vector2(14, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibcjk"]
+radius = 21.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_84ghy"]
+font_size = 3
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lhlc4"]
+font_size = 3
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ea8ka"]
+font_size = 3
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n5vrw"]
+font_size = 3
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="component_machine" type="StaticBody2D"]
+position = Vector2(61, 37)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("1_n7175")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -3)
+shape = SubResource("RectangleShape2D_pw1ou")
+
+[node name="component_machine_interaction_area" type="Area2D" parent="."]
+script = ExtResource("2_0txo4")
+player_data = ExtResource("3_t0cak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="component_machine_interaction_area"]
+position = Vector2(3, -3)
+shape = SubResource("CircleShape2D_ibcjk")
+
+[node name="Label" type="Label" parent="component_machine_interaction_area"]
+offset_left = -6.0
+offset_top = -27.0
+offset_right = 21.0
+offset_bottom = -20.0
+text = "[E] to interact"
+label_settings = SubResource("LabelSettings_84ghy")
+
+[node name="Label2" type="Label" parent="component_machine_interaction_area"]
+offset_left = -10.0
+offset_top = -37.0
+offset_right = 17.0
+offset_bottom = -25.0
+text = "[F] to upgrade"
+label_settings = SubResource("LabelSettings_lhlc4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="crafting_time" type="Timer" parent="component_machine_interaction_area"]
+wait_time = 3.0
+
+[node name="upgrade_label" type="Label" parent="component_machine_interaction_area"]
+offset_left = -12.0
+offset_top = 7.0
+offset_right = 19.0
+offset_bottom = 30.0
+text = "Yay! Upgraded!"
+label_settings = SubResource("LabelSettings_ea8ka")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="crafting_label" type="Label" parent="component_machine_interaction_area"]
+offset_left = -10.0
+offset_top = -44.0
+offset_right = 16.0
+offset_bottom = -33.0
+text = "crafting..."
+label_settings = SubResource("LabelSettings_n5vrw")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="hint" type="Sprite2D" parent="."]
+position = Vector2(-28, -3)
+texture = ExtResource("4_lc8fp")
+script = ExtResource("5_cij3q")
+
+[node name="Timer" type="Timer" parent="hint"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="area_entered" from="component_machine_interaction_area" to="component_machine_interaction_area" method="_on_area_entered"]
+[connection signal="area_exited" from="component_machine_interaction_area" to="component_machine_interaction_area" method="_on_area_exited"]
+[connection signal="timeout" from="component_machine_interaction_area/crafting_time" to="component_machine_interaction_area" method="_on_crafting_time_timeout"]
+[connection signal="timeout" from="hint/Timer" to="hint" method="_on_timer_timeout"]

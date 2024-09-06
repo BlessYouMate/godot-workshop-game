@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://y86lh5yvs3lr"]
+
+[ext_resource type="Script" path="res://objects/resources/dropping/big_component_dropped.gd" id="1_to2qn"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="2_34h3r"]
+[ext_resource type="Texture2D" uid="uid://b1bwflfo3v4ax" path="res://Art/Assets/objects/big_component.png" id="2_aejy5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67m6u"]
+size = Vector2(15, 8)
+
+[node name="big_component_dropped" type="Area2D"]
+script = ExtResource("1_to2qn")
+player_data = ExtResource("2_34h3r")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_aejy5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_67m6u")

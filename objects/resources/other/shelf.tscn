@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxymi7hqm1f68"]
+
+[ext_resource type="Texture2D" uid="uid://dso2tywd2nnrk" path="res://Art/Assets/indoor/shelf.png" id="1_oekq5"]
+[ext_resource type="Script" path="res://objects/resources/other/shelf.gd" id="1_oyvb4"]
+[ext_resource type="Script" path="res://objects/resources/other/shelf1.gd" id="3_amamr"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="3_m342r"]
+[ext_resource type="Script" path="res://objects/resources/other/shelf2.gd" id="5_ot1ag"]
+[ext_resource type="Script" path="res://objects/resources/other/shelf3.gd" id="6_srqqp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwrgy"]
+size = Vector2(32, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e26bk"]
+size = Vector2(6, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c8jd"]
+size = Vector2(6, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dq1kf"]
+size = Vector2(6, 10)
+
+[node name="shelf" type="StaticBody2D"]
+position = Vector2(-1, 0)
+script = ExtResource("1_oyvb4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oekq5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_xwrgy")
+
+[node name="interaction_area1" type="Area2D" parent="."]
+position = Vector2(-11, 1)
+script = ExtResource("3_amamr")
+player_data = ExtResource("3_m342r")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area1"]
+shape = SubResource("RectangleShape2D_e26bk")
+
+[node name="interaction_area2" type="Area2D" parent="."]
+position = Vector2(0, 1)
+script = ExtResource("5_ot1ag")
+player_data = ExtResource("3_m342r")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area2"]
+shape = SubResource("RectangleShape2D_5c8jd")
+
+[node name="interaction_area3" type="Area2D" parent="."]
+position = Vector2(11, 1)
+script = ExtResource("6_srqqp")
+player_data = ExtResource("3_m342r")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area3"]
+shape = SubResource("RectangleShape2D_dq1kf")

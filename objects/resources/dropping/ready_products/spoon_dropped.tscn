@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://du8i31yf43gxu"]
+
+[ext_resource type="Script" path="res://objects/resources/dropping/ready_products/spoon_dropped.gd" id="1_mua5j"]
+[ext_resource type="Texture2D" uid="uid://dfj6x5lxcd4ka" path="res://Art/Assets/objects/box.png" id="1_touax"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="2_xw007"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14tgx"]
+size = Vector2(8, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tj8xr"]
+font_size = 3
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="spoon_dropped" type="Area2D"]
+script = ExtResource("1_mua5j")
+player_data = ExtResource("2_xw007")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_touax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_14tgx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -6.0
+offset_top = -8.0
+offset_right = 6.0
+offset_bottom = -2.0
+text = "spoon"
+label_settings = SubResource("LabelSettings_tj8xr")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

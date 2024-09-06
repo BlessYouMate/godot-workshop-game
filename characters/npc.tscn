@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxbwcfmelj55u"]
+
+[ext_resource type="Script" path="res://characters/npc.gd" id="1_ng0vj"]
+[ext_resource type="Texture2D" uid="uid://chf28134aaeu0" path="res://Art/Assets/character/npc/npc.png" id="1_ty8ul"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="2_lysyy"]
+[ext_resource type="Script" path="res://characters/request.gd" id="3_act5e"]
+[ext_resource type="Script" path="res://characters/request_label.gd" id="4_vm8kv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_og27i"]
+font_size = 4
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="npc" type="CharacterBody2D"]
+position = Vector2(-67, 93)
+script = ExtResource("1_ng0vj")
+player_data = ExtResource("2_lysyy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ty8ul")
+
+[node name="waiting" type="Timer" parent="."]
+wait_time = 120.0
+
+[node name="request_label" type="Label" parent="."]
+offset_left = -11.0
+offset_top = -16.0
+offset_right = 11.0
+offset_bottom = -8.0
+text = "someting"
+label_settings = SubResource("LabelSettings_og27i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("4_vm8kv")
+
+[node name="request" type="Node" parent="request_label"]
+script = ExtResource("3_act5e")
+
+[connection signal="timeout" from="waiting" to="." method="_on_waiting_timeout"]

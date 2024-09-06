@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://d311pawyh0r7r"]
+
+[ext_resource type="Texture2D" uid="uid://28l51re60spf" path="res://Art/Assets/objects/medium_component.png" id="1_5xlch"]
+[ext_resource type="Script" path="res://objects/resources/dropping/medium_component_dropped.gd" id="1_jevni"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="2_wxf0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8g6p"]
+size = Vector2(12, 6)
+
+[node name="medium_component" type="Area2D"]
+script = ExtResource("1_jevni")
+player_data = ExtResource("2_wxf0r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5xlch")
+
+[node name="area_interact" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_y8g6p")

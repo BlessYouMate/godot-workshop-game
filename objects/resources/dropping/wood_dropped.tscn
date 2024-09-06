@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8r4bn3kw03lg"]
+
+[ext_resource type="Texture2D" uid="uid://bk8g8tqkyxmm5" path="res://Art/Assets/objects/wood_pick.png" id="1_tjyk3"]
+[ext_resource type="Script" path="res://objects/resources/dropping/wood_dropped.gd" id="1_ywfjn"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="2_3k8wa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4ji2"]
+size = Vector2(14, 7)
+
+[node name="wood_dropped" type="Area2D"]
+script = ExtResource("1_ywfjn")
+player_data = ExtResource("2_3k8wa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tjyk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_v4ji2")

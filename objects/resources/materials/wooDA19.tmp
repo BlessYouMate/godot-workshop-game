@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://csifqb3hfwuke"]
+
+[ext_resource type="Texture2D" uid="uid://bk8g8tqkyxmm5" path="res://Art/Assets/objects/wood_pick.png" id="1_rft2o"]
+[ext_resource type="Script" path="res://objects/resources/materials/wood_pick_area.gd" id="2_unv7n"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="3_355ch"]
+[ext_resource type="Script" path="res://objects/resources/materials/pick_global.gd" id="4_78oab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2elv"]
+size = Vector2(17, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1i51e"]
+radius = 17.0294
+
+[node name="wood_pick" type="StaticBody2D"]
+position = Vector2(41, 14)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_rft2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_h2elv")
+
+[node name="wood_pick_area" type="Area2D" parent="."]
+script = ExtResource("2_unv7n")
+player_data = ExtResource("3_355ch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wood_pick_area"]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_1i51e")
+
+[node name="pick_global" type="Node2D" parent="."]
+script = ExtResource("4_78oab")
+player_data = ExtResource("3_355ch")

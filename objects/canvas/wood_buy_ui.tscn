@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://ck6fm1bw0sxom"]
+
+[ext_resource type="Script" path="res://objects/canvas/wood_buy_ui.gd" id="1_nsf7m"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="2_3nvxd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6tjlf"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_fiigo"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_cek0f"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_gcmx1"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_6gkva"]
+font_size = 12
+
+[node name="wood_buy_ui" type="CanvasLayer"]
+script = ExtResource("1_nsf7m")
+player_data = ExtResource("2_3nvxd")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 130.0
+offset_top = 6.0
+offset_right = 277.0
+offset_bottom = 150.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 131.0
+offset_top = 7.0
+offset_right = 277.0
+offset_bottom = 149.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 108.0
+offset_right = 94.0
+offset_bottom = 130.0
+
+[node name="Label" type="Label" parent="Control/Button"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 42.0
+offset_bottom = 23.0
+text = "buy"
+label_settings = SubResource("LabelSettings_6tjlf")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="amount_of_wood" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 50.0
+offset_right = 108.0
+offset_bottom = 73.0
+text = "wood in stock:"
+label_settings = SubResource("LabelSettings_fiigo")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="Control/amount_of_wood"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 19.0
+offset_right = 56.0
+offset_bottom = 42.0
+text = "0"
+label_settings = SubResource("LabelSettings_cek0f")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="price" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = -1.0
+offset_right = 104.0
+offset_bottom = 22.0
+text = "price:"
+label_settings = SubResource("LabelSettings_gcmx1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="Control/price"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 18.0
+offset_right = 53.0
+offset_bottom = 41.0
+text = "2"
+label_settings = SubResource("LabelSettings_6gkva")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

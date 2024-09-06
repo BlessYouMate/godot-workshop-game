@@ -1,0 +1,10 @@
+Label
+CollisionShape2D
+Area2D
+Sprite2D
+StaticBody2D
+Node
+Button
+Control
+Panel
+CanvasLayer

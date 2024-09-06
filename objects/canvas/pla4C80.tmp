@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://11ebtmiosqid"]
+
+[ext_resource type="Script" path="res://objects/canvas/player_stat.gd" id="1_ylvgc"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="2_svnen"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5q25l"]
+font_size = 9
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tvpp3"]
+font_size = 9
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ih5vv"]
+font_size = 9
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1tu1l"]
+font_size = 9
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="player_stat" type="CanvasLayer"]
+script = ExtResource("1_ylvgc")
+player_data = ExtResource("2_svnen")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="money" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "money:"
+label_settings = SubResource("LabelSettings_5q25l")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="money_label" type="Label" parent="Control/money"]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 65.0
+offset_bottom = 23.0
+text = "0"
+label_settings = SubResource("LabelSettings_tvpp3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="exp" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 40.0
+offset_bottom = 37.0
+text = "exp:"
+label_settings = SubResource("LabelSettings_ih5vv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="exp_label" type="Label" parent="Control/exp"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 2.0
+offset_right = 65.0
+offset_bottom = 25.0
+text = "0"
+label_settings = SubResource("LabelSettings_1tu1l")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://btkkx85ld6vxr"]
+
+[ext_resource type="Texture2D" uid="uid://dgtlt584hdt0e" path="res://Art/Assets/indoor/order_table.png" id="1_jd8yr"]
+[ext_resource type="Script" path="res://levels/orders.gd" id="2_v0d2v"]
+[ext_resource type="Script" path="res://levels/npc_spawner.gd" id="3_4wjlt"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="3_g6ayc"]
+[ext_resource type="PackedScene" uid="uid://bxbwcfmelj55u" path="res://characters/npc.tscn" id="4_0r5fw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hcbr"]
+size = Vector2(13, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxy45"]
+size = Vector2(18, 56)
+
+[sub_resource type="LabelSettings" id="LabelSettings_657ey"]
+font_size = 3
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="orders_table" type="StaticBody2D"]
+position = Vector2(1, 82)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jd8yr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -4.5)
+shape = SubResource("RectangleShape2D_2hcbr")
+
+[node name="orders" type="Area2D" parent="."]
+script = ExtResource("2_v0d2v")
+player_data = ExtResource("3_g6ayc")
+
+[node name="npc_spawner" type="Node" parent="orders"]
+script = ExtResource("3_4wjlt")
+npc_tscn = ExtResource("4_0r5fw")
+
+[node name="Spawn" type="Timer" parent="orders/npc_spawner"]
+wait_time = 60.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="orders"]
+position = Vector2(8, -3)
+shape = SubResource("RectangleShape2D_qxy45")
+
+[node name="Label" type="Label" parent="orders"]
+offset_left = -20.0
+offset_top = -57.0
+offset_right = 20.0
+offset_bottom = -34.0
+text = "[E] to interact"
+label_settings = SubResource("LabelSettings_657ey")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="area_entered" from="orders" to="orders" method="_on_area_entered"]
+[connection signal="timeout" from="orders/npc_spawner/Spawn" to="orders/npc_spawner" method="_on_spawn_timeout"]

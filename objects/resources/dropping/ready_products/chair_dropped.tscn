@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxious4i5kllb"]
+
+[ext_resource type="Script" path="res://objects/resources/dropping/ready_products/chair_dropped.gd" id="1_6tts0"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="2_en0ok"]
+[ext_resource type="Texture2D" uid="uid://dfj6x5lxcd4ka" path="res://Art/Assets/objects/box.png" id="2_uu4xk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7gat"]
+size = Vector2(10, 7)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bwhub"]
+font_size = 3
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="chair_dropped" type="Area2D"]
+script = ExtResource("1_6tts0")
+player_data = ExtResource("2_en0ok")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_uu4xk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_e7gat")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -11.0
+offset_right = 9.0
+offset_bottom = -1.0
+text = "chair"
+label_settings = SubResource("LabelSettings_bwhub")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

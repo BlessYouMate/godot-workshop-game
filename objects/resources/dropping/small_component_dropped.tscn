@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://clkxccmtjfdvp"]
+
+[ext_resource type="Texture2D" uid="uid://capnv2p8fco7q" path="res://Art/Assets/objects/small_component.png" id="1_7wg6k"]
+[ext_resource type="Script" path="res://objects/resources/dropping/small_component_dropped.gd" id="1_b6b1i"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="2_3fxrn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc735"]
+size = Vector2(7, 6)
+
+[node name="small_component_dropped" type="Area2D"]
+script = ExtResource("1_b6b1i")
+player_data = ExtResource("2_3fxrn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7wg6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_uc735")

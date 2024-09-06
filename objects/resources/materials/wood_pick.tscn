@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://csifqb3hfwuke"]
+
+[ext_resource type="Texture2D" uid="uid://bk8g8tqkyxmm5" path="res://Art/Assets/objects/wood_pick.png" id="1_rft2o"]
+[ext_resource type="Script" path="res://objects/resources/materials/wood_pick_area.gd" id="2_unv7n"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="3_355ch"]
+[ext_resource type="PackedScene" uid="uid://ck6fm1bw0sxom" path="res://objects/canvas/wood_buy_ui.tscn" id="4_0bpqc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2elv"]
+size = Vector2(17, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1i51e"]
+radius = 17.0294
+
+[sub_resource type="LabelSettings" id="LabelSettings_5livn"]
+font_size = 3
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pdbnh"]
+font_size = 3
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="wood_pick" type="StaticBody2D"]
+position = Vector2(42, 16)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_rft2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_h2elv")
+
+[node name="wood_pick_area" type="Area2D" parent="."]
+script = ExtResource("2_unv7n")
+player_data = ExtResource("3_355ch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wood_pick_area"]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_1i51e")
+
+[node name="wood_buy_ui" parent="wood_pick_area" instance=ExtResource("4_0bpqc")]
+visible = false
+
+[node name="options" type="Label" parent="wood_pick_area"]
+offset_left = -21.0
+offset_top = -25.0
+offset_right = 19.0
+offset_bottom = -2.0
+text = "[E] to pick up
+[B] to buy"
+label_settings = SubResource("LabelSettings_5livn")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="wood_amount" type="Label" parent="wood_pick_area"]
+offset_left = -22.0
+offset_top = -3.0
+offset_right = 18.0
+offset_bottom = 20.0
+text = "[0]"
+label_settings = SubResource("LabelSettings_pdbnh")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="area_entered" from="wood_pick_area" to="wood_pick_area" method="_on_area_entered"]
+[connection signal="area_exited" from="wood_pick_area" to="wood_pick_area" method="_on_area_exited"]

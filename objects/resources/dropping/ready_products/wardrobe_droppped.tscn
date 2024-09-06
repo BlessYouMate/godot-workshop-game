@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cntmvsxlre7re"]
+
+[ext_resource type="Script" path="res://objects/resources/dropping/ready_products/wardrobe_droppped.gd" id="1_p0isa"]
+[ext_resource type="Texture2D" uid="uid://dfj6x5lxcd4ka" path="res://Art/Assets/objects/box.png" id="1_vucnk"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="2_yo2iw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1c13n"]
+size = Vector2(8, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yprp1"]
+font_size = 3
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="wardrobe_dropped" type="Area2D"]
+script = ExtResource("1_p0isa")
+player_data = ExtResource("2_yo2iw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vucnk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_1c13n")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+offset_bottom = -2.0
+text = "wardrobe"
+label_settings = SubResource("LabelSettings_yprp1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

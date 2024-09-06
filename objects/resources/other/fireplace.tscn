@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://b05s42ygfik38"]
+
+[ext_resource type="Texture2D" uid="uid://bq088vmvsijb" path="res://Art/Assets/indoor/fireplace.png" id="1_qo8y4"]
+[ext_resource type="Script" path="res://objects/resources/other/fireplace.gd" id="2_hrdsm"]
+[ext_resource type="Resource" uid="uid://78hxtu2xkf4q" path="res://data/player_1_data.tres" id="3_bpkr0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srtaj"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3buaf"]
+radius = 17.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_v5v4n"]
+font_size = 3
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(4, 23)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qo8y4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_srtaj")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_hrdsm")
+player_data = ExtResource("3_bpkr0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3buaf")
+
+[node name="Label" type="Label" parent="Area2D"]
+offset_left = -20.0
+offset_top = -28.0
+offset_right = 20.0
+offset_bottom = -5.0
+text = "[E] to interact"
+label_settings = SubResource("LabelSettings_v5v4n")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
